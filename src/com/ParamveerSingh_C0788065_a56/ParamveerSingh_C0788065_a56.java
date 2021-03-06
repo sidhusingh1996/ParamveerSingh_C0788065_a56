@@ -93,4 +93,22 @@ public class ParamveerSingh_C0788065_a56 {
             return 0.0;
         }
     }
+
+    private static double getStorageOption(double optionCostSmall, double optionCostLarge) {
+        String servicePackage = JOptionPane.showInputDialog(null,
+                "Options:" +
+                        "\n Storage Small- $" + optionCostSmall +
+                        "\n Storage Large- $" + optionCostLarge +
+                        "\n For storage small, enter S" +
+                        "\n For storage large, enter L");
+        if(servicePackage.equalsIgnoreCase("S")){
+            return optionCostSmall;
+        }
+        else if(servicePackage.equalsIgnoreCase("L")){
+            return optionCostLarge;
+        }
+        else  {
+            return 0.0;
+        }
+    }
 }
