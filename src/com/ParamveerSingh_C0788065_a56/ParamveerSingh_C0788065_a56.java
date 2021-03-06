@@ -1,5 +1,7 @@
 package com.ParamveerSingh_C0788065_a56;
 
+import javax.swing.*;
+
 public class ParamveerSingh_C0788065_a56 {
     private double servicesPackageA;
     private double servicesPackageB;
@@ -72,5 +74,23 @@ public class ParamveerSingh_C0788065_a56 {
 
     public double getItemsBoxesLarge() {
         return itemsBoxesLarge;
+    }
+
+    private static double getServicePackage(double costA, double costB) {
+        String servicePackage = JOptionPane.showInputDialog(null,
+                "Services:" +
+                        "\n Package A- $" + costA +
+                        "\n Package B- $" + costB +
+                        "\n For package A, enter A" +
+                        "\n For package B, enter B");
+        if(servicePackage.equalsIgnoreCase("A")){
+            return costA;
+        }
+        else if(servicePackage.equalsIgnoreCase("B")){
+            return costB;
+        }
+        else  {
+            return 0.0;
+        }
     }
 }
