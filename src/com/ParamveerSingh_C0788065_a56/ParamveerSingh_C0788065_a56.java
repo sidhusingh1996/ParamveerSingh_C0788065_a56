@@ -111,4 +111,22 @@ public class ParamveerSingh_C0788065_a56 {
             return 0.0;
         }
     }
+
+    private static double getBoxOption(double itemBoxesSmall, double itemBoxesLarge) {
+        String servicePackage = JOptionPane.showInputDialog(null,
+                "Items:" +
+                        "\n Boxes Small- $" + itemBoxesSmall +
+                        "\n Boxes Large- $" + itemBoxesLarge +
+                        "\n For boxes small, enter S" +
+                        "\n For boxes large, enter L");
+        if(servicePackage.equalsIgnoreCase("S")){
+            return itemBoxesSmall;
+        }
+        else if(servicePackage.equalsIgnoreCase("L")){
+            return itemBoxesLarge;
+        }
+        else  {
+            return 0.0;
+        }
+    }
 }
