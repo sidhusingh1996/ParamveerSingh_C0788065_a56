@@ -76,6 +76,40 @@ public class ParamveerSingh_C0788065_a56 {
         return itemsBoxesLarge;
     }
 
+    public static void main(String[] args) {
+        ParamveerSingh_C0788065_a56 cost = new ParamveerSingh_C0788065_a56();
+        int i = 1;
+        int j = 2;
+        while (true){
+            String username = JOptionPane.showInputDialog(null,"Enter Username: (Hint: Paramveer)");
+            String password = JOptionPane.showInputDialog(null,"Enter Password: (Hint: Singh)");
+            if(username.equals("Paramveer") && password.equals("Singh")){
+                JOptionPane.showMessageDialog(null, "Welcome! You are logged in.");
+                double servicesPackage = getServicePackage(cost.getServicesPackageA(),cost.getServicesPackageB());
+                System.out.println("Cost of Service Package: $" + servicesPackage);
+                double optionsStorage = getStorageOption(cost.getOptionsStorageSmall(),cost.getOptionsStorageLarge());
+                System.out.println("Cost of Options Storage: $" + optionsStorage);
+                double itemsBoxes = getBoxOption(cost.getItemsBoxesSmall(),cost.getItemsBoxesLarge());
+                System.out.println("Cost of Options Storage: $" + itemsBoxes);
+                JOptionPane.showMessageDialog(null,
+                        "Total services cost as per your selection: $"+ servicesPackage +
+                                "\nTotal options cost as per your selection: $"+ optionsStorage +
+                                "\nTotal cost of items as per your selection: $"+ itemsBoxes +
+                                "\n\nTotal cost including everything: $" + (servicesPackage + optionsStorage + itemsBoxes));
+                break;
+            }
+            else if (i < 3 ){
+                JOptionPane.showMessageDialog(null, "Please enter correct credentials. " + j + " more tries left.");
+                i++;
+                j--;
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "You have exceeded your tries, goodbye.");
+                break;
+            }
+        }
+    }
+
     private static double getServicePackage(double costA, double costB) {
         String servicePackage = JOptionPane.showInputDialog(null,
                 "Services:" +
