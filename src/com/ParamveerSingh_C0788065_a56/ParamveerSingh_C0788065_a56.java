@@ -80,22 +80,35 @@ public class ParamveerSingh_C0788065_a56 {
         ParamveerSingh_C0788065_a56 cost = new ParamveerSingh_C0788065_a56();
         int i = 1;
         int j = 2;
+        String input;
         while (true){
             String username = JOptionPane.showInputDialog(null,"Enter Username: (Hint: Paramveer)");
             String password = JOptionPane.showInputDialog(null,"Enter Password: (Hint: Singh)");
             if(username.equals("Paramveer") && password.equals("Singh")){
                 JOptionPane.showMessageDialog(null, "Welcome! You are logged in.");
+
                 double servicesPackage = getServicePackage(cost.getServicesPackageA(),cost.getServicesPackageB());
-                System.out.println("Cost of Service Package: $" + servicesPackage);
+                input = JOptionPane.showInputDialog(null,"How many hours you want this service: ");
+                double hoursService = Double.parseDouble(input);
+                double totalService = servicesPackage * hoursService;
+                System.out.println("Cost of Service Package: $" + totalService);
+
                 double optionsStorage = getStorageOption(cost.getOptionsStorageSmall(),cost.getOptionsStorageLarge());
-                System.out.println("Cost of Options Storage: $" + optionsStorage);
+                input = JOptionPane.showInputDialog(null,"How many days you want this option: ");
+                double dayOptions = Double.parseDouble(input);
+                double totalOptions = optionsStorage * dayOptions;
+                System.out.println("Cost of Options Storage: $" + totalOptions);
+
                 double itemsBoxes = getBoxOption(cost.getItemsBoxesSmall(),cost.getItemsBoxesLarge());
-                System.out.println("Cost of Options Storage: $" + itemsBoxes);
+                input = JOptionPane.showInputDialog(null,"How many boxes you want this item: ");
+                double boxItems = Double.parseDouble(input);
+                double totalBoxes = itemsBoxes * boxItems;
+                System.out.println("Cost of Options Storage: $" + totalBoxes);
                 JOptionPane.showMessageDialog(null,
-                        "Total services cost as per your selection: $"+ servicesPackage +
-                                "\nTotal options cost as per your selection: $"+ optionsStorage +
-                                "\nTotal cost of items as per your selection: $"+ itemsBoxes +
-                                "\n\nTotal cost including everything: $" + (servicesPackage + optionsStorage + itemsBoxes));
+                        "Total services cost as per your selection: $"+ totalService +
+                                "\nTotal options cost as per your selection: $"+ totalOptions +
+                                "\nTotal cost of items as per your selection: $"+ totalBoxes +
+                                "\n\nTotal cost including everything: $" + (totalService + totalOptions + totalBoxes));
                 break;
             }
             else if (i < 3 ){
@@ -113,10 +126,11 @@ public class ParamveerSingh_C0788065_a56 {
     private static double getServicePackage(double costA, double costB) {
         String servicePackage = JOptionPane.showInputDialog(null,
                 "Services:" +
-                        "\n Package A- $" + costA +
-                        "\n Package B- $" + costB +
+                        "\n Package A- $" + costA + "/hr" +
+                        "\n Package B- $" + costB + "/hr" +
                         "\n For package A, enter A" +
                         "\n For package B, enter B");
+
         if(servicePackage.equalsIgnoreCase("A")){
             return costA;
         }
@@ -131,8 +145,8 @@ public class ParamveerSingh_C0788065_a56 {
     private static double getStorageOption(double optionCostSmall, double optionCostLarge) {
         String servicePackage = JOptionPane.showInputDialog(null,
                 "Options:" +
-                        "\n Storage Small- $" + optionCostSmall +
-                        "\n Storage Large- $" + optionCostLarge +
+                        "\n Storage Small- $" + optionCostSmall + "/day" +
+                        "\n Storage Large- $" + optionCostLarge + "/day" +
                         "\n For storage small, enter S" +
                         "\n For storage large, enter L");
         if(servicePackage.equalsIgnoreCase("S")){
@@ -149,8 +163,8 @@ public class ParamveerSingh_C0788065_a56 {
     private static double getBoxOption(double itemBoxesSmall, double itemBoxesLarge) {
         String servicePackage = JOptionPane.showInputDialog(null,
                 "Items:" +
-                        "\n Boxes Small- $" + itemBoxesSmall +
-                        "\n Boxes Large- $" + itemBoxesLarge +
+                        "\n Boxes Small- $" + itemBoxesSmall + "/box" +
+                        "\n Boxes Large- $" + itemBoxesLarge + "/box" +
                         "\n For boxes small, enter S" +
                         "\n For boxes large, enter L");
         if(servicePackage.equalsIgnoreCase("S")){
